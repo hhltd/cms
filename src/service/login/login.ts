@@ -1,4 +1,3 @@
-import loginModule from '@/store/login/login';
 import cmsRequest from '../index';
 import { IAccount, IDataType, ILoginResult } from './types';
 
