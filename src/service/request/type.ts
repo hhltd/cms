@@ -1,10 +1,3 @@
-/*
- * @Author: huanghuan02
- * @Date: 2021-07-31 08:53:32
- * @LastEditors: huanghuan02
- * @LastEditTime: 2021-07-31 10:31:50
- * @Description: 类型文件
- */
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export interface cmsRequestInterceptors<T = AxiosResponse> {

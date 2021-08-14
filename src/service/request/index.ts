@@ -1,11 +1,3 @@
-/*
- * @Author: huanghuan02
- * @Date: 2021-07-31 07:57:12
- * @LastEditors: huanghuan02
- * @LastEditTime: 2021-07-31 10:37:25
- * @Description: 网络请求
- */
-
 import axios from 'axios';
 import type { AxiosInstance } from 'axios';
 import type { cmsRequestInterceptors, CMSRequestConfig } from './type';
@@ -15,6 +7,7 @@ import { ILoadingInstance } from 'element-plus/lib/el-loading/src/loading.type';
 // 设置showLoading的默认值
 const DEFAULT_LOADING = true;
 
+// axios请求真正的类
 class CMSRequest {
   // 多个请求 创建多个实例
   instance: AxiosInstance;
@@ -44,7 +37,7 @@ class CMSRequest {
     this.instance.interceptors.request.use(
       (config) => {
         // 全局添加token
-        console.log('全局拦截器, 请求拦截成功');
+        // console.log('全局拦截器, 请求拦截成功');
         // 添加loading
         if (this.showLoading) {
           this.loading = ElLoading.service({
@@ -57,7 +50,7 @@ class CMSRequest {
         return config;
       },
       (err) => {
-        console.log('全局拦截器, 请求拦截失败');
+        // console.log('全局拦截器, 请求拦截失败');
         return err;
       },
     );
@@ -65,7 +58,7 @@ class CMSRequest {
       (res) => {
         // 移除loading
         this.loading?.close();
-        console.log('全局拦截器, 响应拦截成功');
+        // console.log('全局拦截器, 响应拦截成功');
         const data = res.data;
         // 根据返回的data判断错误
         if (data.returnCode === '-1001') {
@@ -75,7 +68,7 @@ class CMSRequest {
         }
       },
       (err) => {
-        console.log('全局拦截器, 响应拦截失败');
+        // console.log('全局拦截器, 响应拦截失败');
         // 移除loading
         this.loading?.close();
         // 判断不同的http状态码
@@ -92,7 +85,7 @@ class CMSRequest {
       if (config.interceptors?.requestInterceptors) {
         config = config.interceptors?.requestInterceptors(config);
       }
-      //关闭loading 但这样会影响下一次请求 因为实例的showLoading被置位fasle
+      //关闭loading 但这样会影响下一次请求 因为实例的showLoading被置位false
       if (config.showLoading === false) {
         this.showLoading = config.showLoading;
       }

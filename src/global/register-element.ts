@@ -1,10 +1,3 @@
-/*
- * @Author: huanghuan02
- * @Date: 2021-07-30 23:57:02
- * @LastEditors: huanghuan02
- * @LastEditTime: 2021-07-31 12:42:59
- * @Description: element-plus组件注册
- */
 import { App } from 'vue';
 import 'element-plus/lib/theme-chalk/base.css';
 import {

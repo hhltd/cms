@@ -1,17 +1,9 @@
-<!--
- * @Author: huanghuan02
- * @Date: 2021-07-31 11:44:04
- * @LastEditors: huanghuan02
- * @LastEditTime: 2021-07-31 13:13:23
- * @Description:
--->
-
 <template>
   <div class="login-phone">
     <el-form
       :model="phone"
       status-icon
-      ref="ruleForm"
+      ref="ruleFormRef"
       :rules="rules"
       label-width="70px"
     >
@@ -31,8 +23,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { defineComponent, reactive, ref } from 'vue';
+import { useStore } from 'vuex';
 import { rules } from '../config/phone-config';
+import { ElForm } from 'element-plus';
 
 export default defineComponent({
   setup() {
@@ -41,9 +35,22 @@ export default defineComponent({
       number: '',
       code: '',
     });
+    const ruleFormRef = ref<InstanceType<typeof ElForm>>();
+    const store = useStore();
+    // 手机号登录
+    const phoneAction = () => {
+      ruleFormRef.value?.validate((valid) => {
+        if (valid) {
+          store.dispatch('login/phoneLoginAction', { ...phone });
+        }
+      });
+    };
+
     return {
       phone,
       rules,
+      ruleFormRef,
+      phoneAction,
     };
   },
 });

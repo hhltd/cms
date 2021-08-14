@@ -1,11 +1,3 @@
-/*
- * @Author: huanghuan02
- * @Date: 2021-07-31 12:37:11
- * @LastEditors: huanghuan02
- * @LastEditTime: 2021-07-31 13:12:15
- * @Description:
- */
-
 export const rules = {
   number: [
     {

@@ -1,11 +1,3 @@
-/*
- * @Author: huanghuan02
- * @Date: 2021-07-31 12:18:28
- * @LastEditors: huanghuan02
- * @LastEditTime: 2021-07-31 12:37:23
- * @Description:
- */
-
 // 校验规则
 export const rules = {
   name: [

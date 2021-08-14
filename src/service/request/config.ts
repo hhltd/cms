@@ -1,11 +1,3 @@
-/*
- * @Author: huanghuan02
- * @Date: 2021-07-31 00:13:54
- * @LastEditors: huanghuan02
- * @LastEditTime: 2021-07-31 08:16:58
- * @Description: 环境配置
- */
-
 // 方式一: 手动切换三种环境
 //开发环境
 // const BASE_URL = 'http://www.baidu.com/dev';
@@ -21,7 +13,7 @@
 let BASE_URL = '';
 const TIME_OUT = 10000;
 if (process.env.NODE_ENV === 'development') {
-  BASE_URL = 'http://123.207.32.32:8000/';
+  BASE_URL = 'http://152.136.185.210:5000';
 } else if (process.env.NODE_ENV === 'production') {
   BASE_URL = 'http://www.baidu.com/prod';
 } else {

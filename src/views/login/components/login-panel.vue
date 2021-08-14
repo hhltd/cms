@@ -1,26 +1,18 @@
-<!--
- * @Author: huanghuan02
- * @Date: 2021-07-31 11:25:34
- * @LastEditors: huanghuan02
- * @LastEditTime: 2021-07-31 22:49:58
- * @Description: 登录面板
--->
-
 <template>
   <div class="login-panel">
     <h1 class="login-panel-title">后台管理系统</h1>
-    <el-tabs type="border-card" stretch>
-      <el-tab-pane>
+    <el-tabs type="border-card" stretch v-model="currentTab">
+      <el-tab-pane name="account">
         <template #label>
           <span><i class="el-icon-user-solid"></i> 账号登录</span>
         </template>
         <login-account ref="accountRef"></login-account>
       </el-tab-pane>
-      <el-tab-pane>
+      <el-tab-pane name="phone">
         <template #label>
           <span><i class="el-icon-mobile-phone"></i> 手机注册</span>
         </template>
-        <login-phone></login-phone>
+        <login-phone ref="phoneRef"></login-phone>
       </el-tab-pane>
     </el-tabs>
     <div class="login-panel-control">
@@ -49,16 +41,25 @@ export default defineComponent({
     LoginPhone,
   },
   setup() {
-    const iskeepPWD = ref(true);
+    const iskeepPWD = ref(true); // 类型推导
+    // LoginAccount类型(LoginAccount实际是一个组件描述符, 需要拿到它的实例) InstanceType<typeof LoginAccount>
     const accountRef = ref<InstanceType<typeof LoginAccount>>();
+    const phoneRef = ref<InstanceType<typeof LoginPhone>>();
+    const currentTab = ref<string>('account');
+    // 登录
     const handleLoginClick = () => {
-      console.log('立即登录');
-      accountRef.value?.loginAction();
+      if (currentTab.value === 'account') {
+        accountRef.value?.loginAction(iskeepPWD.value);
+      } else {
+        phoneRef.value?.phoneAction();
+      }
     };
 
     return {
       iskeepPWD,
       accountRef,
+      phoneRef,
+      currentTab,
       handleLoginClick,
     };
   },
