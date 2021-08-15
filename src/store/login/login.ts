@@ -9,6 +9,7 @@ import {
 } from '@/service/login/login';
 import { IAccount } from '@/service/login/types';
 import localCache from '@/utils/cache';
+import { mapMenusToRoutes } from '@/utils/map-menus';
 
 const loginModule: Module<ILoginState, IRootState> = {
   namespaced: true,
@@ -29,6 +30,13 @@ const loginModule: Module<ILoginState, IRootState> = {
     },
     changeUserMenus(state, userMenus: any) {
       state.userMenus = userMenus;
+      // 将userMenus映射到routes
+      const routes = mapMenusToRoutes(userMenus);
+      console.log(routes);
+      // 将routes添加到main -> children
+      routes.forEach((route) => {
+        router.addRoute('main', route);
+      });
     },
   },
   actions: {

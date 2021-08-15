@@ -6,17 +6,27 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     redirect: '/main',
   },
+  // 根据菜单动态生成路由表
   {
     path: '/main',
-    name: 'Main',
+    name: 'main',
     component: () =>
       import(/* webpackChunkName: "main" */ '@/views/main/main.vue'),
+    // children: [],
   },
   {
     path: '/login',
-    name: 'Login',
+    name: 'login',
     component: () =>
       import(/* webpackChunkName: "login" */ '@/views/login/login.vue'),
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () =>
+      import(
+        /* webpackChunkName: "not-found" */ '@/views/not-found/not-found.vue'
+      ),
   },
 ];
 
