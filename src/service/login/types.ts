@@ -12,8 +12,3 @@ export interface ILoginResult {
 // export interface IUserInfo {
 
 // }
-
-export interface IDataType<T = any> {
-  code: number;
-  data: T;
-}

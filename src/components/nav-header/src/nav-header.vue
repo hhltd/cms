@@ -7,7 +7,9 @@
       @click="handleFoldChange"
     ></i>
     <div class="nav-header-content">
-      <div class="nav-header-content-left">面包屑</div>
+      <div class="nav-header-content-left">
+        <nav-bread-crumb :breadcrumb="breadcrumbs"></nav-bread-crumb>
+      </div>
       <div class="nav-header-content-right">
         <user-info></user-info>
       </div>
@@ -16,13 +18,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
+import { useRoute } from 'vue-router';
 import UserInfo from './user-info.vue';
+import { useStore } from 'vuex';
+import NavBreadCrumb from '@/base-ui/breadcrumb';
+import { pathMapBreadCrumbs } from '@/utils/map-menus';
 
 export default defineComponent({
   emits: ['foldChange'],
   components: {
     UserInfo,
+    NavBreadCrumb,
   },
   setup(props, { emit }) {
     const isFold = ref<boolean>(false);
@@ -31,8 +38,17 @@ export default defineComponent({
       isFold.value = !isFold.value;
       emit('foldChange', isFold.value);
     };
+    // 面包屑数据
+    const breadcrumbs = computed(() => {
+      const store = useStore();
+      const route = useRoute();
+      const userMenus = store.state.login.userMenus;
+      const currentPath = route.path;
+      return pathMapBreadCrumbs(userMenus, currentPath);
+    });
     return {
       isFold,
+      breadcrumbs,
       handleFoldChange,
     };
   },

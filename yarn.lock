@@ -3571,7 +3571,7 @@
   dependencies:
     "assert-plus" "^1.0.0"
 
-"dayjs@1.x":
+"dayjs@^1.10.6", "dayjs@1.x":
   "integrity" "sha1-KIsqqC8thBimydTfWJjAc3rQKmM="
   "resolved" "https://registry.nlark.com/dayjs/download/dayjs-1.10.6.tgz"
   "version" "1.10.6"
@@ -3932,6 +3932,14 @@
   dependencies:
     "jsbn" "~0.1.0"
     "safer-buffer" "^2.1.0"
+
+"echarts@^5.1.2":
+  "integrity" "sha1-qhqwzvW3T6L3xiAmGl8oaJPTD9E="
+  "resolved" "https://registry.nlark.com/echarts/download/echarts-5.1.2.tgz"
+  "version" "5.1.2"
+  dependencies:
+    "tslib" "2.0.3"
+    "zrender" "5.1.1"
 
 "ee-first@1.1.1":
   "integrity" "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="
@@ -9454,6 +9462,11 @@
   "resolved" "https://registry.nlark.com/tslib/download/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
+"tslib@2.0.3":
+  "integrity" "sha1-jgdBrEX8DCJuWKF7/D5kubxsphw="
+  "resolved" "https://registry.nlark.com/tslib/download/tslib-2.0.3.tgz?cache=0&sync_timestamp=1628722580350&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.0.3.tgz"
+  "version" "2.0.3"
+
 "tslint@^5.20.1":
   "integrity" "sha1-5AHortoBUrxE3QfmFANPP4DGe30="
   "resolved" "https://registry.npm.taobao.org/tslint/download/tslint-5.20.1.tgz"
@@ -10253,3 +10266,10 @@
     "is-ci" "^1.0.10"
     "normalize-path" "^1.0.0"
     "strip-indent" "^2.0.0"
+
+"zrender@5.1.1":
+  "integrity" "sha1-BRX0+MwPR0LwKmuIGVUKbRPWTFw="
+  "resolved" "https://registry.nlark.com/zrender/download/zrender-5.1.1.tgz"
+  "version" "5.1.1"
+  dependencies:
+    "tslib" "2.0.3"

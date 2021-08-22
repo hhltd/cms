@@ -25,6 +25,17 @@ import {
   ElAvatar,
   ElRow,
   ElCol,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElSelect,
+  ElOption,
+  ElDatePicker,
+  ElTable,
+  ElTableColumn,
+  ElPagination,
+  ElImage,
+  ElDialog,
+  ElTree,
 } from 'element-plus';
 
 const components = [
@@ -52,6 +63,17 @@ const components = [
   ElAvatar,
   ElRow,
   ElCol,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElSelect,
+  ElOption,
+  ElDatePicker,
+  ElTable,
+  ElTableColumn,
+  ElPagination,
+  ElImage,
+  ElDialog,
+  ElTree,
 ];
 
 export default function (app: App): void {
